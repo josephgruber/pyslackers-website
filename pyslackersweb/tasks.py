@@ -36,7 +36,7 @@ async def sync_slack_users(
                 )
     except asyncio.CancelledError:
         logger.debug("Slack users cache refresh canceled")
-    except Exception:  # pylint: disable=broad-except
+    except Exception:
         logger.exception("Error refreshing slack users cache")
 
 
@@ -61,5 +61,5 @@ async def sync_slack_channels(slack_client: SlackAPI, pg: asyncpg.pool.Pool) -> 
                 )
     except asyncio.CancelledError:
         logger.debug("Slack channels cache refresh canceled")
-    except Exception:  # pylint: disable=broad-except
+    except Exception:
         logger.exception("Error refreshing slack channels cache")

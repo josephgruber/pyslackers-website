@@ -1,13 +1,10 @@
 # `alembic.context` is only available when executed from the cli `alembic` command.
-# pylint complains about missing member (E1101).
-# pylint: disable=E1101
-
-import sys
 import pathlib
-
+import sys
 from logging.config import fileConfig
-from sqlalchemy import pool, create_engine
+
 from alembic import context
+from sqlalchemy import create_engine, pool
 
 # We must append the parent directory to sys.path in order to import `pyslackersweb`.
 # Alembic does not add the current directory to the path when invoked from the cli.
@@ -15,8 +12,8 @@ directory = str(pathlib.Path(__file__).absolute().parent.parent)
 if directory not in sys.path:
     sys.path.append(directory)
 
-import pyslackersweb  # pylint: disable=wrong-import-position
-from pyslackersweb import models  # pylint: disable=wrong-import-position
+import pyslackersweb  # noqa: E402 (module-import-not-at-top-of-file)
+from pyslackersweb import models  # noqa: E402 (module-import-not-at-top-of-file)
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

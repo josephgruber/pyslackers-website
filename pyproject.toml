@@ -38,8 +38,7 @@ test = [
     "pytest-asyncio>=0.23.5",
 ]
 lint = [
-    "black>=24.1.1",
-    "pylint>=3.0.0",
+    "ruff>=0.12.11",
 ]
 typing = [
     "mypy>=1.8.0",
@@ -51,18 +50,20 @@ dev = [
     { include-group = "typing" },
 ]
 
-[tool.black]
-line-length = 100
-target-version = ["py312"]
-exclude = """
-/(
-    \\.git
-    | \\.tox
-    | \\.venv
-    | \\.env
-)/
-"""
-
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope="function"
+
+[tool.ruff]
+extend-exclude = [".env", "migrations", "tests"]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+preview = true
+select = [
+    "A", # Flake8-builtins
+    "E", # pycodestyle (equivalent of Flake8 base)
+    "F", # pyflakes (equivalent of Flake8 base)
+    "W", # pycodestyle (equivalent of Flake8 base)
+]

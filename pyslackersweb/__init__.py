@@ -45,7 +45,7 @@ async def index(request: web.Request) -> web.HTTPFound:
     return web.HTTPFound(location=location)
 
 
-async def app_factory(*args) -> web.Application:  # pylint: disable=unused-argument
+async def app_factory(*args) -> web.Application:
     app = web.Application(
         middlewares=[
             ForwardedRelaxed().middleware,
@@ -53,7 +53,7 @@ async def app_factory(*args) -> web.Application:  # pylint: disable=unused-argum
             request_context_middleware,
         ]
     )
-    app.update(  # pylint: disable=no-member
+    app.update(
         subapps={},
         client_session=None,  # populated via signal
         scheduler=None,  # populated via signal

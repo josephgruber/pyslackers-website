@@ -4,7 +4,7 @@ from aiohttp import web
 
 
 async def background_jobs(
-    app: web.Application,  # pylint: disable=W0613
+    app: web.Application,
 ) -> AsyncGenerator[None, None]:
     # scheduler = app["scheduler"]
     # pg = app["pg"]

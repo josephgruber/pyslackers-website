@@ -14,7 +14,7 @@ async def app_factory() -> web.Application:
     package_root = Path(__file__).parent
 
     website = web.Application()
-    website.update(  # pylint: disable=no-member
+    website.update(
         client_session=None,  # populated via parent app signal
         redis=None,  # populated via parent app signal
         scheduler=None,  # populated via parent app signal

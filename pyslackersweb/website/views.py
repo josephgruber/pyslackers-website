@@ -40,13 +40,13 @@ class Index(web.View):
                         "image": self.request.app.router["static"].url_for(
                             filename="images/sponsor_platformsh.svg"
                         ),
-                        "href": "https://platform.sh/?medium=referral&utm_campaign=sponsored_sites&utm_source=pyslackers",  # pylint: disable=line-too-long
+                        "href": "https://platform.sh/?medium=referral&utm_campaign=sponsored_sites&utm_source=pyslackers",
                     },
                     {
                         "image": self.request.app.router["static"].url_for(
                             filename="images/sponsor_sentry.svg"
                         ),
-                        "href": "https://sentry.io/?utm_source=referral&utm_content=pyslackers&utm_campaign=community",  # pylint: disable=line-too-long
+                        "href": "https://sentry.io/?utm_source=referral&utm_content=pyslackers&utm_campaign=community",
                     },
                 ],
             }
