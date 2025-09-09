@@ -6,7 +6,7 @@ from .context import background_jobs
 
 async def app_factory() -> web.Application:
     sirbot = web.Application()
-    sirbot.update(  # pylint: disable=no-member
+    sirbot.update(
         client_session=None,  # populated via parent app signal
         redis=None,  # populated via parent app signal
         scheduler=None,  # populated via parent app signal

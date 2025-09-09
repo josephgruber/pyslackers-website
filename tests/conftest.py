@@ -1,11 +1,11 @@
-from unittest.mock import MagicMock, AsyncMock
+from unittest.mock import AsyncMock, MagicMock
+
 import pytest
+from sqlalchemy import delete
 
 import pyslackersweb
-from pyslackersweb.sirbot.models import codewars
 import pyslackersweb.website.tasks
-
-from sqlalchemy import delete
+from pyslackersweb.sirbot.models import codewars
 
 
 class SlackClient:
@@ -108,7 +108,8 @@ async def slack_client_ctx(slack_client):
 @pytest.fixture
 async def client(monkeypatch, aiohttp_client, slack_client_ctx):
 
-    # Patch imported slack_client context in pyslackersweb/__init__.py with the fake slack client ctx
+    # Patch imported slack_client context in pyslackersweb/__init__.py
+    # with the fake slack client ctx
     monkeypatch.setattr(pyslackersweb, "slack_client", slack_client_ctx)
 
     application = await pyslackersweb.app_factory()

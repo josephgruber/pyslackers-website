@@ -35,7 +35,7 @@ Tox forwards positional arguments to pytest, that way you can use all standard p
 $ docker-compose run --rm web tox -e test tests/test_website.py::test_endpoint_index
 ```
 
-To run the black auto-formatter on the code you can use:
+To run the ruff auto-formatter on the code you can use:
 
 ```bash
 $ docker-compose run --rm web tox -e autoformat

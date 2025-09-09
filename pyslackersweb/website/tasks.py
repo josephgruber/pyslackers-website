@@ -17,7 +17,7 @@ logger = ContextAwareLoggerAdapter(logging.getLogger(__name__))
 GITHUB_REPO_CACHE_KEY = "github:repos"
 
 
-@dataclasses.dataclass(frozen=True)  # pylint: disable=too-few-public-methods
+@dataclasses.dataclass(frozen=True)
 class Repository:
     name: str
     description: str
@@ -61,7 +61,7 @@ async def sync_github_repositories(
         )
     except asyncio.CancelledError:
         logger.debug("Github cache refresh canceled")
-    except Exception:  # pylint: disable=broad-except
+    except Exception:
         logger.exception("Error refreshing GitHub cache")
 
     return repositories
